@@ -23,8 +23,6 @@ with open('binary_points.csv', 'r') as csvfile:
 
 # loop your data to allow each instance to be your test set
 for i, instance in enumerate(db):
-
-
     # add the training features to the 2D array X removing the instance that will be used for testing in this iteration. For instance, X = [[1, 3], [2, 1,], ...]]. Convert each feature value to
     # float to avoid warning messages
     # --> add your Python code here
@@ -70,7 +68,7 @@ for i, instance in enumerate(db):
 
     # fitting the knn to the data
     clf = KNeighborsClassifier(n_neighbors=1, p=2)
-    clf = clf.fit(X10, Y10)
+    clf = clf.fit(X9, Y9)
 
     # use your test sample in this iteration to make the class prediction. For instance:
     # class_predicted = clf.predict([[1, 2]])[0]
@@ -89,24 +87,22 @@ for i, instance in enumerate(db):
     # compare the prediction with the true label of the test instance to start calculating the error rate.
     # --> add your Python code here
 
-    #0 class_predicted = clf.predict([[0, 5]])[0]
-    #1 class_predicted2 = clf.predict([[4, 1]])[0]
-    #2 class_predicted3 = clf.predict([[3, 2]])[0] incorrect prediction
-    #3 class_predicted4 = clf.predict([[4, 3]])[0]
-    #4 class_predicted5 = clf.predict([[4, 4]])[0] incorrect prediction
-    #5 class_predicted6 = clf.predict([[2, 1]])[0] incorrect prediction
-    #6 class_predicted7 = clf.predict([[3, 3]])[0]
-    #7 class_predicted8 = clf.predict([[2, 4]])[0] incorrect prediction
-    #8 class_predicted9 = clf.predict([[1, 4]])[0] incorrect prediction
-    #9 class_predicted10 = clf.predict([[0, 3]])[0]
+    # 0 class_predicted = clf.predict([[0, 5]])[0]
+    # 1 class_predicted2 = clf.predict([[4, 1]])[0] incorrect prediction
+    # 2 class_predicted3 = clf.predict([[3, 2]])[0]
+    # 3 class_predicted4 = clf.predict([[4, 3]])[0]
+    # 4 class_predicted5 = clf.predict([[4, 4]])[0]
+    # 5 class_predicted6 = clf.predict([[2, 1]])[0] incorrect prediction
+    # 6 class_predicted7 = clf.predict([[3, 3]])[0]
+    # 7 class_predicted8 = clf.predict([[2, 4]])[0] incorrect prediction
+    # 8 class_predicted9 = clf.predict([[1, 4]])[0] incorrect prediction
+    # 9 class_predicted10 = clf.predict([[0, 3]])[0]
 
-if class_predicted == 1 and db[9][2] != "-" or class_predicted == 2 and db[9][2] != "+":
-        print("wrong prediction instance")
-
-
+if class_predicted9 == 1 and db[6][2] != "-" or class_predicted9 == 2 and db[6][2] != "+":
+    print("wrong prediction instance")
 
 # print the error rate
 # --> add your Python code here
-wrongPrediction = 5
+wrongPrediction = 4
 errorRate = wrongPrediction / 10
 print(errorRate)
